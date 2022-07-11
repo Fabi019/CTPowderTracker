@@ -1,12 +1,12 @@
-import PVObject from "PersistentData";
+import PogObject from "PogData";
 import Settings from "./config";
 
-const data = new PVObject("powderTracker", {
+const data = new PogObject("PowderTracker", {
   chests: 0,
   gemstonePowder: 0,
   mithrilPowder: 0,
   hudPos: [0, 0]
-});
+}, ".persistantData.json");
 
 const statDisplay = new Display();
 statDisplay.setBackgroundColor(Renderer.color(0, 0, 0, 75));
@@ -122,6 +122,7 @@ register("chat", (value, type, event) => {
 }).setCriteria("&r&aYou received &r&b+${value} &r&a${type} Powder&r");
 
 function updateDisplay() {
+  data.save();
   const [x, y] = data.hudPos;
   statDisplay.clearLines();
   statDisplay.setRenderLoc(x, y);
@@ -166,6 +167,7 @@ register("dragged", (dx, dy, x, y) => {
   if (moveGui.isOpen()) {
     data.hudPos = [x, y];
     statDisplay.setRenderLoc(x, y);
+    data.save();
   }
 });
 
