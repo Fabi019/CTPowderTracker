@@ -84,6 +84,8 @@ register("command", (...args) => {
     default:
       printHelp();
   }
+}).setTabCompletions((args) => {
+  return ["config", "start", "stop", "sync", "move", "reset"];
 }).setName("powdertracker");
 
 register("chat", event => {
