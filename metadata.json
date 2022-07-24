@@ -1,7 +1,7 @@
 {
   "name": "PowderTracker",
   "creator": "Fabi019",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Tracks gemstone and mithil powder from treasure chests in the Crystal Hollows.",
   "requires": ["Vigilance", "PogData"],
   "entry": "index.js"
