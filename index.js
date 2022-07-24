@@ -11,6 +11,7 @@ const data = new PogObject("PowderTracker", {
 const statDisplay = new Display();
 statDisplay.setBackgroundColor(Renderer.color(0, 0, 0, 75));
 statDisplay.setBackground("full");
+statDisplay.setShouldRender(Settings.TrackerVisible);
 
 const moveGui = new Gui();
 
