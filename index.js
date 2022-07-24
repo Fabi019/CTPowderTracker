@@ -8,11 +8,6 @@ const data = new PogObject("PowderTracker", {
   hudPos: [0, 0]
 }, ".persistantData.json");
 
-const statDisplay = new Display();
-statDisplay.setBackgroundColor(Renderer.color(0, 0, 0, 75));
-statDisplay.setBackground("full");
-statDisplay.setShouldRender(Settings.TrackerVisible);
-
 const moveGui = new Gui();
 
 let sessionRunning = false;
@@ -21,9 +16,10 @@ let sessionChests = 0;
 let sessionGemstone = 0;
 let sessionMithril = 0;
 
-register("worldLoad", () => {
-  updateDisplay();
-});
+const statDisplay = new Display();
+statDisplay.setBackgroundColor(Renderer.color(0, 0, 0, 75));
+statDisplay.setBackground("full");
+updateDisplay();
 
 function printHelp() {
   ChatLib.chat("Available commands");

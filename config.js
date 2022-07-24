@@ -65,20 +65,24 @@ class Settings {
     this.initialize(this);
     this.registerListener("Show overlay", value => {
       this.TrackerVisible = value;
-      ChatLib.command("powdertracker sync", true);
+      this.sync();
     });
     this.registerListener("Show totals", value => {
       this.ShowTotals = value;
-      ChatLib.command("powdertracker sync", true);
+      this.sync();
     });
     this.registerListener("Show rates", value => {
       this.ShowRates = value;
-      ChatLib.command("powdertracker sync", true);
+      this.sync();
     });
     this.registerListener("Alignment", value => {
       this.TrackerAlignment = value;
-      ChatLib.command("powdertracker sync", true);
+      this.sync();
     });
+  }
+
+  sync() {
+    ChatLib.command("powdertracker sync", true);
   }
 }
 
